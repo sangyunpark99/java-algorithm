@@ -1,0 +1,6 @@
+-- 코드를 작성해주세요
+SELECT DISTINCT D.ID, D.EMAIL, D.FIRST_NAME, D.LAST_NAME
+FROM DEVELOPERS D
+JOIN SKILLCODES S ON (D.SKILL_CODE & S.CODE > 0)
+WHERE S.NAME IN ("C#", "Python") /*중복될 수 있다. -> C#, Python 둘 다 하는 경우*/
+ORDER BY D.ID ASC;
