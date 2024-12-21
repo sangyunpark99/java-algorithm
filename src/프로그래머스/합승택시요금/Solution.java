@@ -55,7 +55,7 @@ public class Solution {
             public int compare(Node o1, Node o2) {
                 return o1.weight - o2.weight;
             }
-        });
+        }); // 누적된 거리가 가장 짧은 Node
 
         pq.add(new Node(start, 0));
 
