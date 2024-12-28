@@ -1,4 +1,4 @@
-package 프로그래머스.lv1스킬트리;
+package 프로그래머스.lv2스킬트리;
 
 import java.util.ArrayList;
 import java.util.List;
