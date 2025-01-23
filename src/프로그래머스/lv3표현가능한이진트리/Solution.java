@@ -44,17 +44,8 @@ public class Solution {
         int mid = (start + end) / 2;
         char root = fullBinaryTree[mid];
 
-        for (int i = mid - 1; i < mid; i++) {
-            if (root == '0' && fullBinaryTree[i] == '1') {
-                return false;
-            }
-        }
-
-        for (int i = mid; i < end; i++) {
-            if (root == '0' && fullBinaryTree[i] == '1') {
-                return false;
-            }
-        }
+        int leftChild = (start + mid - 1) / 2;
+        int rightChild = (mid + 1 + end) / 2;
 
         return validateBinaryTree(fullBinaryTree, start, mid - 1) && validateBinaryTree(fullBinaryTree, mid + 1, end);
     }
