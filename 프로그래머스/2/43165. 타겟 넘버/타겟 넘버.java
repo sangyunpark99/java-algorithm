@@ -2,7 +2,7 @@ class Solution {
     
     static int[] Numbers;
     static int Target;
-    static int answer = 0;
+    //static int answer = 0;
     
     public int solution(int[] numbers, int target) {
         
@@ -11,12 +11,12 @@ class Solution {
         
         // 더하거나 빼거나
         
-        dfs(0, 0);
-        
-        return answer;
+        return dfs(0, 0);
     }
     
-    private void dfs(int curValue, int curIdx) {
+    private int dfs(int curValue, int curIdx) {
+        
+        int answer = 0;
         
         if(curIdx == Numbers.length) {
             
@@ -24,10 +24,11 @@ class Solution {
                 answer++;        
             }
             
-            return;
+            return answer;
         }
         
-        dfs(curValue + Numbers[curIdx], curIdx+1);
-        dfs(curValue - Numbers[curIdx], curIdx+1);
+        answer = dfs(curValue + Numbers[curIdx], curIdx+1) + dfs(curValue - Numbers[curIdx], curIdx+1);
+        
+        return answer;
     }
 }
