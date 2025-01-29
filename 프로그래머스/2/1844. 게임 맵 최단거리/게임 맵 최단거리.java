@@ -14,14 +14,10 @@ class Solution {
         n = maps.length;
         m = maps[0].length;
         visited = new int[n][m];
-        
-        for(int i = 0; i < n; i++) {
-            Arrays.fill(visited[i], Integer.MAX_VALUE);
-        }
-        
+
         bfs();
         
-        return visited[n-1][m-1] == Integer.MAX_VALUE ? -1 : visited[n-1][m-1];
+        return visited[n-1][m-1] == 0 ? -1 : visited[n-1][m-1];
     }
     
     public void bfs() {
@@ -41,9 +37,9 @@ class Solution {
                 int ny = curY + dy[i];
                 int nx = curX + dx[i];
                 
-                if(ny < 0 || ny >= n || nx < 0 || nx >= m || Maps[ny][nx] == 0 || visited[ny][nx] != Integer.MAX_VALUE) continue;
+                if(ny < 0 || ny >= n || nx < 0 || nx >= m || Maps[ny][nx] == 0 || visited[ny][nx] != 0) continue;
                 
-                visited[ny][nx] = Math.min(visited[ny][nx], visited[curY][curX] + 1);
+                visited[ny][nx] = visited[curY][curX] + 1;
                 
                 queue.add(new int[]{ny, nx});   
             }
