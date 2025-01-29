@@ -44,7 +44,8 @@ class Solution {
                 if(ny < 0 || ny >= n || nx < 0 || nx >= m || Maps[ny][nx] == 0 || visited[ny][nx] != Integer.MAX_VALUE) continue;
                 
                 visited[ny][nx] = Math.min(visited[ny][nx], visited[curY][curX] + 1);
-                queue.add(new int[]{ny, nx});
+                
+                queue.add(new int[]{ny, nx});   
             }
         }
     }
