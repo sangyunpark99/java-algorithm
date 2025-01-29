@@ -41,6 +41,10 @@ class Solution {
                 
                 visited[ny][nx] = visited[curY][curX] + 1;
                 
+                if(ny == n - 1 && nx == m - 1) {
+                    return;
+                }
+                
                 queue.add(new int[]{ny, nx});   
             }
         }
