@@ -1,8 +1,7 @@
 import java.util.*;
 
 class Solution {
-    // begin -> target으로 변환하는 가장 짧은 변환 과정
-    // 한번에 한개만
+    
     private int answer = 0;
     private boolean[] visited;
     private String Target;
@@ -11,32 +10,22 @@ class Solution {
     
     public int solution(String begin, String target, String[] words) {
         
-        // O(n) = 50 * 10
         Target = target;
         Begin = begin;
         Words = words;
         visited = new boolean[words.length];
-        
-        boolean isInWord = false;
-        for(String word: Words) {
-            if(target.equals(word)) {
-                isInWord = true;
-                break;
-            }
-        }
-        
-        if(!isInWord) {
+    
+        if(!isContainWord()) {
             return 0;
         }
         
         bfs();
         
-        return answer > 0 ? answer : 0;
+        return answer;
     }
     
     private void bfs() {
         Queue<Word> queue = new LinkedList<>();
-        
         queue.add(new Word(Begin, 0));
         
         while(!queue.isEmpty()) {
@@ -69,9 +58,23 @@ class Solution {
             if(!splitCurText[i].equals(splitNextText[i])) {
                 differCnt++;
             }
+            
+            if(differCnt > 1) {
+                return false;
+            }
         }
         
-        return differCnt == 1 ? true : false;
+        return true;
+    }
+    
+    private boolean isContainWord() {
+        for(String word: Words) {
+            if(Target.equals(word)) {
+                return true;
+            }
+        }
+        
+        return false;
     }
     
     class Word {
