@@ -28,8 +28,8 @@ public class Main {
 
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
-            int start = Integer.parseInt(br.readLine());
-            int end = Integer.parseInt(br.readLine());
+            int start = Integer.parseInt(st.nextToken());
+            int end = Integer.parseInt(st.nextToken());
 
             for (int j = start; j < end; j++) { // t명 이상 존재하는 경우 그냥 t명이 있다고 생각해도 무방
                 cnt[i] = Math.min(t, cnt[j] + 1);
@@ -47,7 +47,7 @@ public class Main {
             count++; // 시간 차이
         }
 
-        
+
     }
 
     static class Node {
