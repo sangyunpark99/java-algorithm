@@ -47,7 +47,6 @@ class Solution {
             }
         }
         
-        System.out.println(Arrays.toString(cloths));
         return answer;
     }
 }
