@@ -3,23 +3,24 @@ import java.util.*;
 class Solution {
     public int solution(String name) {
         int answer = 0;
-        int len = name.length();
+        int length = name.length();
         
         // 1. 알파벳 변경 최소 횟수 계산
-        for (char ch : name.toCharArray()) {
+        for (char ch : name.toCharArray()) { // A부터 or Z부터
             answer += Math.min(ch - 'A', 'Z' - ch + 1);
         }
         
         // 2. 커서 이동 최소 횟수 계산
-        int move = len - 1; // 기본적으로 오른쪽으로 쭉 가는 경우
-        for (int i = 0; i < len; i++) {
+        int move = name.length() - 1;
+
+        for(int i = 0; i < length; i++) {
             int next = i + 1;
-            while (next < len && name.charAt(next) == 'A') {
+            
+            while(next < length && name.charAt(next) == 'A') {
                 next++;
             }
             
-            // 현재 위치(i)에서 되돌아가는 경우 고려
-            move = Math.min(move, i + len - next + Math.min(i, len - next));
+            move = Math.min(move, i + length - next + Math.min(i, length - next));
         }
         
         answer += move;
