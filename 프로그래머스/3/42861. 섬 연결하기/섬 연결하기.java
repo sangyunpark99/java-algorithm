@@ -28,15 +28,15 @@ class Solution {
         while(!pq.isEmpty()) {
             Node cur = pq.poll();
             
-            if(visited[cur.nextNum]) {
+            if(visited[cur.number]) {
                 continue;
             }
             
-            visited[cur.nextNum] = true;
+            visited[cur.number] = true;
             answer += cur.weight;
             
-            for(Node nextNode : graph.get(cur.nextNum)) {
-                if(!visited[nextNode.nextNum]) {
+            for(Node nextNode : graph.get(cur.number)) {
+                if(!visited[nextNode.number]) {
                     pq.add(nextNode);
                 }
             }
@@ -46,11 +46,11 @@ class Solution {
     }
     
     class Node {
-        int nextNum;
+        int number;
         int weight;
         
-        public Node(int nextNum, int weight) {
-            this.nextNum = nextNum;
+        public Node(int number, int weight) {
+            this.number = number;
             this.weight = weight;
         }
     }
