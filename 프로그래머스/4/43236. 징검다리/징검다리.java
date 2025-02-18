@@ -26,10 +26,10 @@ class Solution {
                 removeRockCnt++;
             }
             
-            if(removeRockCnt <= n) { // 제거해야할 돌의 갯수가 더 작거나 같은경우
+            if(removeRockCnt <= n) {
                 answer = mid;
                 start = mid + 1;
-            }else { // 제거해야할 돌의 갯수가 더 많은 경우
+            }else {
                 end = mid - 1;
             }
         }
