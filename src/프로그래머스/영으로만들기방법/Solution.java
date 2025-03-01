@@ -48,6 +48,8 @@ class Solution {
 
         dfs(0, a);
 
+        System.out.println(Arrays.deepToString(graph));
+
         return totalMove;
     }
 
