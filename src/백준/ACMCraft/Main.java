@@ -1,4 +1,4 @@
-package ACMCraft;
+package 백준.ACMCraft;
 
 import java.io.BufferedReader;
 import java.io.IOException;

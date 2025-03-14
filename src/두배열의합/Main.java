@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Main {
 
-    private static HashMap<Integer, Integer> aSum= new HashMap<>();
+    private static HashMap<Integer, Integer> aSum= new HashMap<>(); // 갯수 카운팅
     private static HashMap<Integer, Integer> bSum = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
@@ -28,17 +28,17 @@ public class Main {
        for(Integer key : aSum.keySet()) {
            int diff = T - key;
            if(bSum.containsKey(T - key)) {
-               answer += (long)aSum.get(key) * bSum.get(diff);
+               answer += (long)aSum.get(key) * bSum.get(diff); // 1,000,000인 경우 시간 초과 발생
            }
        }
 
         System.out.println(answer);
     }
 
-    private static void getSubArraySumCnt(int[] arr, Map<Integer, Integer> sumCnt) {
+    private static void getSubArraySumCnt(int[] arr, Map<Integer, Integer> sumCnt) { // 부분합
         int n = arr.length;
 
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < n; i++) { // O(N)
             int sum = 0;
             for(int j = i; j < n; j++) { // 부분합
                 sum += arr[j];

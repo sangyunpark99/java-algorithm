@@ -1,4 +1,4 @@
-package 수나누기게임;
+package 백준.수나누기게임;
 
 import java.io.BufferedReader;
 import java.io.IOException;
