@@ -16,6 +16,8 @@ public class Main {
     private static int[] dy = {-1, 0, 1, 0};
     private static int[] dx = {0, 1, 0, -1};
 
+    // 영역을 탐색하는 경우 BFS를 사용하면 더 빠륿니다.
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -48,7 +50,7 @@ public class Main {
             for (int j = 0; j < M; j++) {
                 if (map[i][j] == 1) {
                     int total = 1;
-                    Set<Integer> findArea = new HashSet<>();
+                    Set<Integer> findArea = new HashSet<>(); // O(1)
 
                     for (int k = 0; k < 4; k++) {
                         int ny = i + dy[k];
