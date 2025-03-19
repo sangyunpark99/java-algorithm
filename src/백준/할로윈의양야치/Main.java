@@ -74,7 +74,7 @@ public class Main {
 
         int notTake = go(idx + 1, person);
 
-        int take = Integer.MIN_VALUE;
+        int take = 0;
         Group cur = groups.get(idx);
 
         if(person + cur.person < K) {
