@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-// 재탐색
+// BFS + 재탐색
 public class Main {
 
     private static int h, w;
@@ -44,7 +44,7 @@ public class Main {
             map = new char[h + 2][w + 2];
             visited = new boolean[h + 2][w + 2];
 
-            for (int i = 0; i < h + 2; i++) {
+            for (int i = 0; i < h + 2; i++) { // 외벽 추가하기
                 Arrays.fill(map[i], '.');
             }
 

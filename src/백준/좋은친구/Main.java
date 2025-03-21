@@ -38,9 +38,9 @@ public class Main {
             answer += cnt[len];
 
             queue.offer(len);
-            cnt[len]++;
+            cnt[len]++; // 해당 문자의 길이를 가진 갯수 카운팅
 
-            if(queue.size() > K) {
+            if(queue.size() > K) { // K개 이상이면 빼
                 int removeLen = queue.poll();
                 cnt[removeLen]--;
             }
