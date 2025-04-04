@@ -25,6 +25,9 @@ public class Main {
         int rightMax = 0;
         int totalWater = 0;
 
+        int a = 0;
+        int b = 2;
+
         while (left < right) {
             if (height[left] < height[right]) { // 왼쪽 벽보다 오른쪽 벽이 더 높은 경우
                 if (height[left] >= leftMax) {
