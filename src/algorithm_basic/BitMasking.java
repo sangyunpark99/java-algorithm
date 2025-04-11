@@ -36,16 +36,16 @@ public class BitMasking {
 //        System.out.printf("조합 : %d\n", (int) (endTime - startTime));
     }
 
-    public static void combi(int start, int depth, List<Integer> list, int end) {
-        if(depth == end) {
-            //System.out.println(list);
-            return;
-        }
-
-        for(int i = start; i <= 10; i++) {
-            list.add(i);
-            combi(i + 1, depth + 1, list, end);
-            list.removeLast();
-        }
-    }
+//    public static void combi(int start, int depth, List<Integer> list, int end) {
+//        if(depth == end) {
+//            //System.out.println(list);
+//            return;
+//        }
+//
+//        for(int i = start; i <= 10; i++) {
+//            list.add(i);
+//            combi(i + 1, depth + 1, list, end);
+//            list.removeLast();
+//        }
+//    }
 }
