@@ -74,8 +74,8 @@ public class Main {
         // y, x를 기준으로 4가지 유형의 도형을 놓기
         for(int[][] type: coverType) { // 각 유형별로 커버
             if(tryCover(y,x,type)) {
-                result += cover();
-                unCover(y,x,type);
+                result += cover(); // 커버
+                unCover(y,x,type); // 커버 해제
             }
         }
 
@@ -83,7 +83,7 @@ public class Main {
     }
 
     private static boolean tryCover(int y, int x, int[][] type) { // cover
-        if(!canPlace(y, x, type)) { // 커버할 수 없는 경우
+        if(!canPlace(y, x, type)) { // 현재 유형 커버 가능해?
             return false;
         }
 
@@ -111,36 +111,4 @@ public class Main {
 
         return true;
     }
-
-//    private static boolean tryCover(int y, int x, int[][] type) {
-//
-//        if(!canPlace(y, x, type)) return false;
-//
-//        for(int[] t : type) {
-//            board[y + t[0]][x + t[1]] = '#';
-//        }
-//
-//        return true;
-//    }
-//
-//    private static void unCover(int y, int x, int[][] type) {
-//        for(int[] t : type) {
-//            board[y + t[0]][x + t[1]] = '.';
-//        }
-//    }
-//
-//    private static boolean canPlace(int y, int x, int[][] type) {
-//        for(int[] t: type) {
-//            int ny = y + t[0];
-//            int nx = x + t[1];
-//
-//            if(ny < 0 || ny >= h || nx < 0 || nx >= w) {
-//                return false;
-//            }
-//            if(board[ny][nx] != '.') {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
 }
