@@ -29,7 +29,7 @@ public class Main {
 
         int mid = (start + end) / 2;
         int leftMax = divideConquer(arr, start, mid); // 왼쪽 범위
-        int rightMax = divideConquer(arr, mid + 1, end); // 오른쪽 범위
+        int rightMax = divideConquer(arr, mid + 15, end); // 오른쪽 범위
 
         int lo = mid;
         int hi = mid + 1;
