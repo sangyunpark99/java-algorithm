@@ -1,4 +1,4 @@
-package 알고리즘문제해결전략1.chapter6.팬미팅.정답풀이;
+package 알고리즘문제해결전략1.chapter6.분할정복.팬미팅.정답풀이;
 import java.io.*;
 import java.util.*;
 

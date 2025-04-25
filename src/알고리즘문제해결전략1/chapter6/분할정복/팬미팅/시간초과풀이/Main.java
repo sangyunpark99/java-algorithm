@@ -1,4 +1,4 @@
-package 알고리즘문제해결전략1.chapter6.팬미팅.시간초과풀이;
+package 알고리즘문제해결전략1.chapter6.분할정복.팬미팅.시간초과풀이;
 
 import java.io.BufferedReader;
 import java.io.IOException;
