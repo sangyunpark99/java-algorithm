@@ -21,6 +21,7 @@ public class Main {
     private static int N;
     private static int K;
     private static int[] prefixSum;
+    private static int[] dp;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -33,8 +34,12 @@ public class Main {
             N = Integer.parseInt(st.nextToken()); // 인형 상자
             K = Integer.parseInt(st.nextToken()); // 어린이의 수
             dolls = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-
             System.out.println(first());
+
+            dp = new int[N + 1];
+            Arrays.fill(dp, - 1);
+
+            System.out.println(second(1));
         }
     }
 
@@ -63,19 +68,31 @@ public class Main {
             answer += (cnt * (cnt - 1)) / 2;
         }
 
-        System.out.println(modCount);
-
         return answer;
     }
 
     /***
      * 서로 겹치지 않는 K의 배수인 구간합을 최대한 많이 선택하라
+     * 매개변수 i : 현재 인덱스 i에서 시작해서 끝까지 탐색했을 때의 최대 주문 횟수
      * @return
      */
     private static int second(int i) {
 
+        if(i > N) return 0;
 
+        if(dp[i] != -1) return dp[i];
 
-        return 0;
+        int result = 0;
+
+        result = second(i + 1); // 선택을 안한 경우
+
+        for(int  j = i; j <= N; j++) { // 선택을 한경우
+            int sum = prefixSum[j] - prefixSum[i - 1];
+            if(sum % K == 0) { // 나눠떨어지는 경우
+                result = Math.max(result, 1 + second(j + 1));// 1개 더하고 다음 범위 탐색
+            }
+        }
+
+        return dp[i] = result;
     }
 }
