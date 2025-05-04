@@ -3,6 +3,7 @@ package 알고리즘문제해결전략1.chapter6.분할정복.울타리잘라내
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Stack;
 
 public class Main {
     // 1. 울타리 배열을 절반으로 나눈다.
@@ -17,10 +18,12 @@ public class Main {
             int n = Integer.parseInt(br.readLine());
             int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-            System.out.println(divideConquer(arr, 0, n - 1));
+            //System.out.println(divideConquer(arr, 0, n - 1));
+            System.out.println(solveStack(arr));
         }
     }
 
+    // 분할 정복 풀이 방법
     private static int divideConquer(int[] arr, int start, int end) {
 
         if(start == end) {
@@ -49,5 +52,28 @@ public class Main {
         }
 
         return Math.max(midMax, Math.max(leftMax, rightMax));
+    }
+
+    // 스택 풀이 방법
+    private static int solveStack(int[] heights) {
+        Stack<Integer> stack = new Stack<>();
+
+        int maxArea = 0;
+        int n = heights.length;
+
+        for(int i = 0; i <= n; i++) {
+            int h = (i == n ? 0 : heights[i]);
+
+            while(!stack.isEmpty() && h < heights[stack.peek()]) {
+                int height = heights[stack.peek()];
+                int width = stack.isEmpty() ? i : i - stack.peek();
+                maxArea = Math.max(maxArea, height * width);
+                stack.pop();
+            }
+
+            stack.push(i);
+        }
+
+        return maxArea;
     }
 }
