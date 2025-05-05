@@ -66,7 +66,7 @@ public class Main {
 
             while(!stack.isEmpty() && h < heights[stack.peek()]) {
                 int height = heights[stack.peek()];
-                int width = stack.isEmpty() ? i : i - stack.peek();
+                int width = i - stack.peek();
                 maxArea = Math.max(maxArea, height * width);
                 stack.pop();
             }
