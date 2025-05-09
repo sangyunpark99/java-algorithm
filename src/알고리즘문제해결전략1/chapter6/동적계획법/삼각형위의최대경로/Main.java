@@ -67,14 +67,24 @@ public class Main {
     private static int solve3() {
 
         dp[0][0] = list.get(0).get(0);
-        int maxValue = Integer.MIN_VALUE;
 
         for(int y = 1; y < 5; y++) {
-            for(int x = 1; x < list.get(y).size(); x++) {
+            for(int x = 0; x <= y; x++) {
                 int cur = list.get(y).get(x);
-                dp[y][x] = Math.max(dp[y][x], Math.max(cur + dp[y - 1][x - 1], cur + dp[y - 1][x]));
-                maxValue = Math.max(maxValue, dp[y][x]);
+
+                if (x == 0) {
+                    dp[y][x] = dp[y - 1][x] + cur; // 맨 왼쪽
+                } else if (x == y) { 
+                    dp[y][x] = dp[y - 1][x - 1] + cur; // 맨 오른쪽
+                } else {
+                    dp[y][x] = Math.max(dp[y - 1][x - 1], dp[y - 1][x]) + cur; // 가운데
+                }
             }
+        }
+
+        int maxValue = 0;
+        for (int x = 0; x < 5; x++) {
+            maxValue = Math.max(maxValue, dp[4][x]);
         }
 
         return maxValue;
