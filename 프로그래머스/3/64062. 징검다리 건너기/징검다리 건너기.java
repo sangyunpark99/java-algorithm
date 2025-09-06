@@ -34,10 +34,10 @@ class Solution {
     
     private boolean check(int value) { // 현재 인원 통과 가능 한가?
         
+        // 밟을 수 없는 징검다리의 갯수가 몇개인가?
         int cnt = 0;
-        // 연속으로 밟을 수 없는 돌이 K개 이상인 경우
         for(int stone : stonesCopy) {
-            if(stone < value) {
+            if(stone < value) { // 밟을 수 없는 징검다리
                 cnt++;
                 if(cnt >= K) return false;
             }else {
@@ -46,5 +46,5 @@ class Solution {
         }
         
         return true;
-    }
+    } 
 }
